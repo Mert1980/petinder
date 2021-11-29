@@ -11,8 +11,11 @@ export class ProfileGalleryComponent implements OnInit {
 
   pets: Pet[] = [];
   selectedPet : Pet | any;
+  searchText: string;
 
-  constructor(private petService: PetService) {}
+  constructor(private petService: PetService) {
+    this.searchText = ""
+  }
 
   ngOnInit(): void {
     this.getPets();
@@ -29,6 +32,10 @@ export class ProfileGalleryComponent implements OnInit {
 
   selectPet(pet: Pet){
     this.selectedPet = pet;
+  }
+
+  onFilterPetsByName(event: Event){
+    this.searchText = (<HTMLInputElement>event.target).value;
   }
 
 }

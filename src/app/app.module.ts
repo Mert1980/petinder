@@ -7,17 +7,21 @@ import {RouterModule} from "@angular/router";
 import {LayoutModule} from "./layout/layout.module";
 import { ProfileGalleryComponent } from './profile-gallery/profile-gallery.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { NameFilterPipe } from './pipe/name-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileGalleryComponent
+    ProfileGalleryComponent,
+    NameFilterPipe
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
+    FormsModule,
     RouterModule.forRoot([]),
   ],
   providers: [],
