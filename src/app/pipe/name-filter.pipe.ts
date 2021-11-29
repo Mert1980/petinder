@@ -5,7 +5,7 @@ import { Pet } from "../model/Pet";
 export class NameFilterPipe implements PipeTransform {
   transform(pets: Pet[], searchText: string) : any[] {
       return pets.filter(pet => {
-      return pet.name.toLowerCase().includes(searchText);
+      return pet.name.toLowerCase().includes(searchText.toLowerCase());
     });
   }
 
