@@ -10,16 +10,25 @@ import { PetService } from '../service/pet.service';
 export class ProfileGalleryComponent implements OnInit {
 
   pets: Pet[] = [];
+  selectedPet : Pet | any;
 
-  constructor(private petService: PetService) { }
+  constructor(private petService: PetService) {}
 
   ngOnInit(): void {
     this.getPets();
   }
 
+  getSelectedPet(){
+    return this.selectedPet;
+  }
+
   getPets(): void{
     this.petService.getPets()
       .subscribe(pets => this.pets = pets);
+  }
+
+  selectPet(pet: Pet){
+    this.selectedPet = pet;
   }
 
 }
