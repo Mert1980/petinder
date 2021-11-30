@@ -15,6 +15,12 @@
         <section id="petProfile" class="tiny-dialog fader">
           <h3>{{selectedPet.name}}</h3>
           <p>{{selectedPet.profileText}}</p>
+          <div class="dialog-centered">
+            <a [routerLink]="['/setup-date', selectedPet.name]" type="button"
+                class="btn btn-primary btn-lg dialog-centered">
+                Setup date
+          </a>
+        </div>
         </section>
         <section class="tiny-dialog">
           <h3>Find your pet</h3>

@@ -1,5 +1,24 @@
-<div class="col-md-3">
-  <h1>Name</h1>
-  <p>Info</p>
+<div class="container modalPopup">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="big-dialog" *ngIf="selectedPet">
+        <div class="clearfix">
+          <div class="pull-left dialog-picture">
+            <img class="small-profile-picture" [src]="'http://localhost:8080/'+ selectedPet.image">
+          </div>
+          <h3>{{selectedPet.name}}</h3>
+          <p>{{selectedPet.profileText}}</p>
+        </div>
+        <div class="clearfix">
+          <a class="btn btn-default">Cancel</a>
+          <form [formGroup]="sendTextForm">
+            <label>Name</label>
+            <input type="text" class="form-control">
+              <button type="submit" class="btn btn-primary pull-right">Let's Play</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 

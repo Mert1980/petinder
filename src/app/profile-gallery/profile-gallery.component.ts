@@ -3,7 +3,6 @@ import { Pet } from '../model/Pet';
 import { PetService } from '../service/pet.service';
 import { FormBuilder } from '@angular/forms';
 
-
 @Component({
   selector: 'app-profile-gallery',
   templateUrl: './profile-gallery.component.html',

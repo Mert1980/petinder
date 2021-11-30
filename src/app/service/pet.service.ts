@@ -10,9 +10,11 @@ import { Pet } from '../model/Pet';
 export class PetService {
 
   private url: string;
+  private urlGetPet: string;
 
   constructor(private http:HttpClient) {
     this.url = `${environment.backendUrl}/pets`;
+    this.urlGetPet = `${environment.backendUrl}/`;
   }
 
   getPets(): Observable<any>{
@@ -23,5 +25,9 @@ export class PetService {
 
   addPet(pet: Pet) : Observable<any>{
     return this.http.post(this.url, pet);
+  }
+
+  getPet(name: string): Observable<any>{
+    return this.http.get(this.url + "/" + name)
   }
 }
