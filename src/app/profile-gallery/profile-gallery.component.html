@@ -3,7 +3,7 @@
     <div id="gallery" class="col-md-9">
       <div class="gallery">
         <div (click) = "selectPet(pet)" *ngFor="let pet of pets | nameFilter : searchText" [ngClass]="{active:selectedPet === pet} " class="gallery-pet fader">
-          <img class="profile-picture" [src]="'https://pettinder.herokuapp.com/'+ pet.image">
+          <img class="profile-picture" [src]="'http://localhost:8080/'+ pet.image">
           <div class="overlay">
             <div class="overlay-text">{{pet.name}}</div>
           </div>
@@ -26,6 +26,24 @@
                 placeholder="Name"
                 [(ngModel)]="searchText"
                 >
+          </div>
+        </section>
+        <section class="tiny-dialog fader" id="petProfile">
+          <div class="form-group">
+            <h3>Add your pet</h3>
+            <form (ngSubmit)="onSubmit()" [formGroup]="createPetForm">
+              <label>Name</label>
+              <input class="form-control" formControlName="name" placeholder="Name" type="text">
+              <label for="exampleInputPassword1">Kind</label>
+              <input class="form-control" formControlName="kind" placeholder="Kind" type="text">
+              <label for="exampleInputEmail1">Picture</label>
+              <input class="form-control" formControlName="image" placeholder="Image" type="text">
+              <label for="exampleInputPassword1">Profile Text</label>
+              <input class="form-control" formControlName="profileText" placeholder="Profile Text" type="text">
+              <label for="exampleInputPassword1">Popularity</label>
+              <input class="form-control" formControlName="popularity" placeholder="Popularity" type="text">
+              <button class="btn btn-primary pull-right" type="submit">Create Pet</button>
+            </form>
           </div>
         </section>
       </div>
