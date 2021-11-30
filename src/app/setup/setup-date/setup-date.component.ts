@@ -12,7 +12,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class SetupDateComponent implements OnInit {
 
-  selectedPet: Pet | any;
+  selectedPet: Pet | undefined;
   sendTextForm = this.formBuilder.group({
     name:'',
     kind:'',
@@ -30,10 +30,10 @@ export class SetupDateComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    this.route.paramMap.pipe(
+    /* this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
       this.router.navigate(['/setup-date/' + params.get('name')])
-    ));
+    )); */
 
     this.petService
     .getPet(this.route.snapshot.params['name'])
