@@ -24,7 +24,7 @@ export class SetupDateComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: PetService,
+    private petService: PetService,
     private formBuilder: FormBuilder
     ) {
      }
@@ -35,13 +35,9 @@ export class SetupDateComponent implements OnInit {
       this.router.navigate(['/setup-date/' + params.get('name')])
     ));
 
-    this.service
+    this.petService
     .getPet(this.route.snapshot.params['name'])
     .subscribe(pet => this.selectedPet = pet);
-
-
-
-
-
   }
+
 }

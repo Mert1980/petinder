@@ -10,11 +10,9 @@ import { Pet } from '../model/Pet';
 export class PetService {
 
   private url: string;
-  private urlGetPet: string;
 
   constructor(private http:HttpClient) {
     this.url = `${environment.backendUrl}/pets`;
-    this.urlGetPet = `${environment.backendUrl}/`;
   }
 
   getPets(): Observable<any>{
@@ -29,5 +27,9 @@ export class PetService {
 
   getPet(name: string): Observable<any>{
     return this.http.get(this.url + "/" + name)
+  }
+
+  deletePet(id: number): Observable<any>{
+    return this.http.delete(this.url + "/" + id)
   }
 }

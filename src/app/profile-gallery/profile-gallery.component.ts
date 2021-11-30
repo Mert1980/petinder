@@ -51,6 +51,11 @@ export class ProfileGalleryComponent implements OnInit {
     this.searchText = (<HTMLInputElement>event.target).value;
   }
 
+  deletePet(id : number): void{
+    this.petService.deletePet(id)
+    .subscribe(()=> this.getPets());
+  }
+
   onSubmit(): void{
     this.petService.addPet(this.createPetForm.value)
     .subscribe(data => {
